@@ -31,6 +31,12 @@ public class ItemController {
 		return itemService.getitems();
 	}
 
+	@GetMapping("/{id}")
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public ItemResponseDto getItemById(@PathVariable("id") long id) {
+		return itemService.getItemById(id);
+	}
+
 	@PutMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.OK)
 	public ItemResponseDto updateItem(@PathVariable("id") long id, @RequestBody ItemUpdateDto itemUpdateDto) {
@@ -39,7 +45,7 @@ public class ItemController {
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.OK)
-	public void deleteByItemId(@PathVariable("id") long id)throws Exception {
+	public void deleteByItemId(@PathVariable("id") long id) throws Exception {
 		itemService.deleteByItemId(id);
 	}
 

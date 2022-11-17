@@ -79,4 +79,13 @@ public class ItemService {
 		
 	}
 
+	public ItemResponseDto getItemById(Long itemId) {
+		Optional<Item> optional = itemRepository.findById(itemId);
+		ItemResponseDto responseDto = new ItemResponseDto();
+		if(optional.isPresent()) {
+		responseDto=	getItemResponseDto(optional.get());
+		}
+		return responseDto;
+	}
+
 }
