@@ -1,5 +1,8 @@
 package com.sharadkhanal.khajagharservice.item;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RequestMapping("/khaja_ghar/itemPost")
 @RestController
@@ -18,7 +23,19 @@ public class ItemController {
 
 	@Autowired
 	private ItemService itemService;
-
+	
+	@PostMapping("/khaja_ghar/itemPost/photo")
+	public String uploadFile(@RequestPart("file")  MultipartFile multipartFile) {
+		try {
+			FileOutputStream fout = new FileOutputStream(multipartFile.getOriginalFilename());
+			fout.write(multipartFile.getBytes());
+			return "Success!";
+		} catch (IOException e) {
+			e.printStackTrace();
+			return "Failed!";
+		}
+	}
+	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.OK)
 	public ItemResponseDto addItems(@RequestBody ItemCreateDto itemCreateDto) {

@@ -51,40 +51,44 @@ public class ItemService {
 	}
 
 	public ItemResponseDto updateItem(long id, ItemUpdateDto itemUpdateDto) {
-		Optional<Item>optionalItem=itemRepository.findById(id);
-		
-		if(optionalItem.isPresent()) {
-			Item item=optionalItem.get();
+		Optional<Item> optionalItem = itemRepository.findById(id);
+
+		if (optionalItem.isPresent()) {
+			Item item = optionalItem.get();
 			item.setItemName(itemUpdateDto.getItemName());
 			item.setItemPicture(itemUpdateDto.getItemPicture());
 			item.setItemPrice(itemUpdateDto.getItemPrice());
 			item.setValidDate(itemUpdateDto.getValidDate());
-			
-			Item savedItem=itemRepository.save(item);
+
+			Item savedItem = itemRepository.save(item);
 			return getItemResponseDto(savedItem);
 		}
 		return null;
 	}
 
-	public void deleteByItemId(long id)throws Exception {
-		Optional<Item>optionalItem=itemRepository.findById(id);
+	public void deleteByItemId(long id) throws Exception {
+		Optional<Item> optionalItem = itemRepository.findById(id);
 //		Item item=optionalItem.get();
-		if(optionalItem.isPresent()) {
-			
+		if (optionalItem.isPresent()) {
+
 			itemRepository.deleteById(id);
-		}
-		else {
+		} else {
 			throw new Exception("The given Item is not available!!!");
 		}
-		
+
 	}
 
 	public ItemResponseDto getItemById(Long itemId) {
-		Optional<Item> optional = itemRepository.findById(itemId);
 		ItemResponseDto responseDto = new ItemResponseDto();
-		if(optional.isPresent()) {
-		responseDto=	getItemResponseDto(optional.get());
+		System.out.println("Item id ==="+itemId);
+		if(itemId!=null) {
+			Optional<Item> optional = itemRepository.findById(itemId);
+			
+			if (optional.isPresent()) {
+				responseDto = getItemResponseDto(optional.get());
+			}
 		}
+		
 		return responseDto;
 	}
 
