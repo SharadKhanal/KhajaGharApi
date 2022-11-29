@@ -1,0 +1,140 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a class="h1"><b>Khaja</b>Ghar</a>
+    </div>
+    <div class="card-body">
+<form [formGroup]="registerForm">
+  <div class="mb-3 mt-3">
+    <div class="form-group">
+      <label for="name" class="form-label"
+        >Name:<span class="text-danger">*</span></label
+      >
+      <input
+        type="name"
+        class="form-control"
+        
+        formControlName="username"
+        placeholder="Enter name"
+        name="name"
+      />
+      <span
+        *ngIf="
+          submitted ||
+          forms['username'].dirty ||
+          (forms['username'].touched && forms['username'].invalid)
+        "
+        class="info-msg text-danger"
+      >
+        <small
+          *ngIf="forms['username'].errors && forms['username'].errors?.['required']"
+        >
+          User name is required
+        </small>
+        <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['maxlength']"> name must be 10 character</small> -->
+        <small *ngIf="forms['userName.maxlength'].errors"
+          >First name should contain max 10 character</small
+        >
+      </span>
+    </div>
+  </div>
+  <div class="mb-3 mt-3">
+    <div class="form-group">
+      <label for="email" class="form-label"
+        >Email:<span class="text-danger">*</span></label
+      >
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Enter email"
+      />
+      <span
+        *ngIf="
+          submitted ||
+          forms['email'].dirty ||
+          (forms['email'].touched && forms['email'].invalid)
+        "
+        class="info-msg text-danger"
+      > 
+         <small *ngIf="forms['email'].errors && forms['email'].errors?.['required']"
+        >
+          Email is required
+        </small>
+        <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['maxlength']"> name must be 10 character</small> -->
+      </span>
+    </div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <div class="form-group">
+      <label for="phone" class="form-label"
+        >Phone Number:<span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        formControlName="contactNumber"
+        placeholder="Enter phone number"
+      />
+      <span
+        *ngIf="
+          submitted ||
+          forms['contactNumber'].dirty ||
+          (forms['contactNumber'].touched && forms['contactNumber'].invalid)
+        "
+        class="info-msg text-danger"
+      >
+        <small
+          *ngIf="forms['contactNumber'].errors && forms['contactNumber'].errors?.['required']"
+        >
+          Phone number is required
+        </small>
+        <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['maxlength']"> name must be 10 character</small> -->
+      </span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <div class="form-group">
+      <label for="pswd" class="form-label"
+        >Password:<span class="text-danger">*</span></label
+      >
+      <input
+        type="password"
+        class="form-control"
+        formControlName="password"
+        placeholder="Enter password"
+      />
+      <span
+        *ngIf="
+          submitted ||
+          forms['password'].dirty ||
+          (forms['password'].touched && forms['password'].invalid)
+        "
+        class="info-msg text-danger"
+      >
+        <small
+          *ngIf="forms['password'].errors && forms['password'].errors?.['required']"
+        >
+          Password is required
+        </small>
+        <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['maxlength']"> name must be 10 character</small> -->
+      </span>
+    </div>
+  </div>
+<div class="row">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="onSubmit(registerForm.value)"
+  >
+    Sign Up
+  </button>
+  <p class="text-center">Have an account? <a class="nav-link" routerLink="/auth/login">Log In</a> </p>
+</div>
+</form>
+</div>
+</div>
+</div>
+
