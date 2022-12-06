@@ -21,6 +21,7 @@ public class UserService {
 		user.setPassword(encryptedPassword);
 		user.setId(userCreateDto.getId());
 		user.setUsername(userCreateDto.getUsername());
+		user.setRole("user");
 		User savedUser = userRepository.save(user);
 		return getUserResponseDto(savedUser);
 

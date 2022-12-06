@@ -8,5 +8,6 @@ public class UserResponseDto {
 	private String username;
 	private String email;
 	private String contactNumber;
+//	private String role;
 //	private String password;
 }

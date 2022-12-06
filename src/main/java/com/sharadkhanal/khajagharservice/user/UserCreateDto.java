@@ -10,5 +10,6 @@ public class UserCreateDto {
 	private String email;
 	private String contactNumber;
 	private String password;
+	private String role;
 
 }
