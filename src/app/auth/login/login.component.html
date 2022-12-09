@@ -1,25 +1,19 @@
-<div class="container mt-5 d-flex justify-content-center">
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a  class="h1"><b>Khaja</b>Ghar</a>
-    </div>
-    <div class="card-body">
-      <form [formGroup]="loginForm" >
-      <div class=" mb-3">
-        <div class="form-group">
-        <label>UserName<span class="text-danger">*</span></label>
-        <input
-          formControlName="username"
-          type="username"
-          class="form-control"
-          placeholder="Username"
-        />
-        <!-- <div class="input-group-append">
+<form [formGroup]="loginForm">
+  <div class="mb-3">
+    <div class="form-group">
+      <label>UserName<span class="text-danger">*</span></label>
+      <input
+        formControlName="username"
+        type="username"
+        class="form-control"
+        placeholder="Username"
+      />
+      <!-- <div class="input-group-append">
           <div class="input-group-text">
             <span class="fas fa-envelope"></span>
           </div>
         </div> -->
-        <span
+      <span
         *ngIf="
           submitted ||
           forms['username'].dirty ||
@@ -30,28 +24,28 @@
         <small
           *ngIf="forms['username'].errors && forms['username'].errors?.['required']"
         >
-         UserName is required
+          UserName is required
         </small>
         <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['maxlength']"> name must be 10 character</small> -->
       </span>
     </div>
-      </div>
-      <div class=" mb-3">
-        <div class="form-group">
-        <label>Password<span class="text-danger">*</span></label>
-        <input
-          formControlName="password"
-          type="password"
-          class="form-control"
-          placeholder="Password"
-        />
-        <!-- <div class="input-group-append">
+  </div>
+  <div class="mb-3">
+    <div class="form-group">
+      <label>Password<span class="text-danger">*</span></label>
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        placeholder="Password"
+      />
+      <!-- <div class="input-group-append">
           <div class="input-group-text">
             <span class="fas fa-envelope"></span>
           </div>
         </div> -->
 
-        <span
+      <span
         *ngIf="
           submitted ||
           forms['password'].dirty ||
@@ -67,30 +61,18 @@
         <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['maxlength']"> name must be 10 character</small> -->
       </span>
     </div>
-      </div>
-      <!-- <div class="row"> -->
-        <button
-          type="submit"
-          class="btn btn-primary"
-          (click)="onSubmit(loginForm.value)"
-        >
-          Login
-        </button>
-        
-        <button
-          type="submit"
-          class="btn btn-primary"
-          (click)="onCancel()"
-        >
-          Back
-        </button>
-      <!-- </div> -->
-      
-    </form>
-
-    </div>
   </div>
-</div>
+  <!-- <div class="row"> -->
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="onSubmit(loginForm.value)"
+  >
+    Login
+  </button>
 
-
-
+  <button type="submit" class="btn btn-primary" (click)="onCancel()">
+    Back
+  </button>
+  <!-- </div> -->
+</form>

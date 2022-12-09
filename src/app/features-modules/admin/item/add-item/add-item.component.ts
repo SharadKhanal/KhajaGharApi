@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Item } from '../item.model';
 import { ItemService } from '../item.service';
 
@@ -15,7 +16,8 @@ item=new Item();
 isSubmitting:boolean=false;
   constructor(
     private formBuilder:FormBuilder,
-    private itemService:ItemService
+    private itemService:ItemService,
+    private router:Router
     ) { }
 
   ngOnInit(): void {
@@ -49,6 +51,7 @@ isSubmitting:boolean=false;
     this.itemService.onAddItem(item).subscribe(
       (Response:any)=>{
         this.isSubmitting=true;
+        this.router.navigate(['/khajaghar/admin/item'])
         this.itemForm.reset()
       },
       (error:any)=>{

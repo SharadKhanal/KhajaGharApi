@@ -1,85 +1,46 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat.core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$khajaGhar-web-primary: mat.define-palette(mat.$indigo-palette);
-$khajaGhar-web-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$khajaGhar-web-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$khajaGhar-web-theme: mat.define-light-theme((
-  color: (
-    primary: $khajaGhar-web-primary,
-    accent: $khajaGhar-web-accent,
-    warn: $khajaGhar-web-warn,
-  )
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($khajaGhar-web-theme);
-
-/* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 body {
-    background: #eee;
-  }
-  
+  background: #eee;
+}
+
+#side_nav {
+  background: #000;
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.content {
+  min-height: 100vh;
+  width: 100%;
+  background: #b7c9c9;
+}
+
+.sidebar li.active {
+  background: #eee;
+  border-radius: 8px;
+}
+
+.sidebar li.active a, .sidebar li.active a:hover {
+  color: #000;
+}
+
+.sidebar li a {
+  color: #fff;
+}
+
+@media (max-width: 767px) {
   #side_nav {
-    background: #000;
-    min-width: 250px;
-    max-width: 250px;
-  }
-  
-  .content {
+    margin-left: -250px;
+    position: fixed;
     min-height: 100vh;
-    width: 100%;
-    background: #b7c9c9;
+    z-index: 1;
   }
-  
-  .sidebar li.active {
-    background: #eee;
-    border-radius: 8px;
+
+  #side_nav.active{
+    margin-left: 0;
   }
-  
-  .sidebar li.active a, .sidebar li.active a:hover {
-    color: #000;
-  }
-  
-  .sidebar li a {
-    color: #fff;
-  }
-  
-  @media (max-width: 767px) {
-    #side_nav {
-      margin-left: -250px;
-      position: fixed;
-      min-height: 100vh;
-      z-index: 1;
-    }
-  
-    #side_nav.active{
-      margin-left: 0;
-    }
-  }
-  
-  .form-group {
-    padding: 10px;
-  }
-  
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}
+
+.form-group {
+  padding: 10px;
+}

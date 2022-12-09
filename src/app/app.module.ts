@@ -8,8 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { BaseModule } from './base-layout/base.module';
 
 
 @NgModule({
@@ -25,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+    BaseModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
