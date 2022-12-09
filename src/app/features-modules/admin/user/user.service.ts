@@ -6,20 +6,20 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-  apiUrlEndPoint='/user/login'
+export class UserService {
+  apiUrlEndPoint:string='/user';
   baseUrl:string=environment.baseUrl
-
 
   constructor(
     private httpClient:HttpClient
   ) { }
 
-  onUserLogin(login:any):Observable<any>{{
-    return this.httpClient.post<any>(
-      this.baseUrl.concat(this.apiUrlEndPoint),login
-    );
+  
+  listAllUsers():Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl.concat(this.apiUrlEndPoint))
   }
 
+  removeUser(id:number):Observable<any>{
+    return this.httpClient.delete<any>(this.baseUrl.concat(this.apiUrlEndPoint+"/delete/"+id))
   }
 }

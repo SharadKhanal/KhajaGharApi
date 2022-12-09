@@ -5,20 +5,40 @@
     </div>
     <div class="card-body">
       <form [formGroup]="loginForm" >
-      <div class="input-group mb-3">
+      <div class=" mb-3">
+        <div class="form-group">
+        <label>UserName<span class="text-danger">*</span></label>
         <input
-          formControlName="email"
-          type="email"
+          formControlName="username"
+          type="username"
           class="form-control"
-          placeholder="Email"
+          placeholder="Username"
         />
         <!-- <div class="input-group-append">
           <div class="input-group-text">
             <span class="fas fa-envelope"></span>
           </div>
         </div> -->
+        <span
+        *ngIf="
+          submitted ||
+          forms['username'].dirty ||
+          (forms['username'].touched && forms['username'].invalid)
+        "
+        class="info-msg text-danger"
+      >
+        <small
+          *ngIf="forms['username'].errors && forms['username'].errors?.['required']"
+        >
+         UserName is required
+        </small>
+        <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['maxlength']"> name must be 10 character</small> -->
+      </span>
+    </div>
       </div>
-      <div class="input-group mb-3">
+      <div class=" mb-3">
+        <div class="form-group">
+        <label>Password<span class="text-danger">*</span></label>
         <input
           formControlName="password"
           type="password"
@@ -30,18 +50,44 @@
             <span class="fas fa-envelope"></span>
           </div>
         </div> -->
+
+        <span
+        *ngIf="
+          submitted ||
+          forms['password'].dirty ||
+          (forms['password'].touched && forms['password'].invalid)
+        "
+        class="info-msg text-danger"
+      >
+        <small
+          *ngIf="forms['password'].errors && forms['password'].errors?.['required']"
+        >
+          Password is required
+        </small>
+        <!-- <small *ngIf="forms['userFirstName'].errors && forms['userFirstName'].errors?.['maxlength']"> name must be 10 character</small> -->
+      </span>
+    </div>
       </div>
-      <div class="row">
+      <!-- <div class="row"> -->
         <button
           type="submit"
           class="btn btn-primary"
-          (click)="onSubmit()"
+          (click)="onSubmit(loginForm.value)"
         >
           Login
         </button>
         
-      </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onCancel()"
+        >
+          Back
+        </button>
+      <!-- </div> -->
+      
     </form>
+
     </div>
   </div>
 </div>

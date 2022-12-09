@@ -1,1 +1,147 @@
-<p>add-item works!</p>
+<div class="container mt-3 d-flex justify-content-center">
+  <div class="row">
+    <div class="col-sm-12">
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a class="h1"><b>Add</b>Item</a>
+    </div>
+    <div class="card-body">
+      
+<form [formGroup]="itemForm">
+  <div class="mb-3 mt-3">
+    <div class="form-group">
+      <label class="form-label"
+        >ItemName:<span class="text-danger">*</span></label
+      >
+      <input
+        type="name"
+        class="form-control"
+        
+        formControlName="itemName"
+        placeholder="Enter item_name"
+        name="name"
+      />
+      <span
+        *ngIf="
+          submitted ||
+          forms['itemName'].dirty ||
+          (forms['itemName'].touched && forms['itemName'].invalid)
+        "
+        class="info-msg text-danger"
+      >
+        <small
+          *ngIf="forms['itemName'].errors && forms['itemName'].errors?.['required']"
+        >
+          Item name is required
+        </small>
+       
+        <small *ngIf="forms['userName.maxlength'].errors"
+          >First name should contain max 10 character</small
+        >
+      </span>
+    </div>
+  </div>
+  <div class="mb-3 mt-3">
+    <div class="form-group">
+      <label  class="form-label"
+        >ItemPrice<span class="text-danger">*</span></label
+      >
+      <input
+        type="email"
+        class="form-control"
+        formControlName="itemPrice"
+        placeholder="Enter price"
+      />
+      <span
+        *ngIf="
+          submitted ||
+          forms['itemPrice'].dirty ||
+          (forms['itemPrice'].touched && forms['itemPrice'].invalid)
+        "
+        class="info-msg text-danger"
+      > 
+         <small *ngIf="forms['itemPrice'].errors && forms['itemPrice'].errors?.['required']"
+        >
+          ItemPrice is required
+        </small>
+       
+      </span>
+    </div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <div class="form-group">
+      <label for="" class="form-label"
+        >Valid_Date<span class="text-danger">*</span></label
+      >
+      <input
+        type="date"
+        class="form-control"
+        formControlName="validDate"
+        placeholder="Enter date"
+      />
+      <span
+        *ngIf="
+          submitted ||
+          forms['validDate'].dirty ||
+          (forms['validDate'].touched && forms['validDate'].invalid)
+        "
+        class="info-msg text-danger"
+      >
+        <small
+          *ngIf="forms['validDate'].errors && forms['validDate'].errors?.['required']"
+        >
+        Date  is required
+        </small>
+        
+      </span>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <div class="form-group">
+      <label for="pswd" class="form-label"
+        >Picture<span class="text-danger">*</span></label
+      >
+      <input
+        type="file"
+        class="form-control"
+        formControlName="itemPicture"
+        placeholder="Upload Photo"
+      />
+      <span
+        *ngIf="
+          submitted ||
+          forms['itemPicture'].dirty ||
+          (forms['itemPicture'].touched && forms['itemPicture'].invalid)
+        "
+        class="info-msg text-danger"
+      >
+        <small
+          *ngIf="forms['itemPicture'].errors && forms['itemPicture'].errors?.['required']"
+        >
+          Picture is required
+        </small>
+        
+      </span>
+    </div>
+  </div>
+<div class="row">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="onSubmit(itemForm.value)"
+  >
+    Add
+  </button>
+  
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+

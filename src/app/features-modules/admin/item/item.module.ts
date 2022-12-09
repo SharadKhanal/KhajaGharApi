@@ -7,6 +7,7 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { EditItemComponent } from './edit-item/edit-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AddItemComponent,
@@ -18,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ItemRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    
+    
   ]
 })
 export class ItemModule { }
