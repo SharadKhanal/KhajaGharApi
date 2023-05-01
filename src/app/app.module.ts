@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseModule } from './base-layout/base.module';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { BaseModule } from './base-layout/base.module';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    BaseModule
+    BaseModule,
+    ToastrModule.forRoot()
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

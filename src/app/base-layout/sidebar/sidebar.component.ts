@@ -15,11 +15,15 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onTutorialsNavigation() {
-    this.router.navigate(['/tutorials']);
+  onUsers() {
+    this.router.navigate(['/khajaghar/admin/user']);
   }
 
-  onUserManagementNavigation() {
-    this.router.navigate(['/user-list']);
+  onItems() {
+    this.router.navigate(['/khajaghar/admin/item']);
+  }
+
+  onOrderedItems(){
+
   }
 }

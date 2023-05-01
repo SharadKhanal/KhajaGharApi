@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Login } from './login.model';
 import { LoginService } from './login.service';
 import { Location } from '@angular/common';
+import { ToastrService } from 'ngx-toastr/public_api';
 
 
 @Component({
@@ -18,11 +19,14 @@ export class LoginComponent implements OnInit {
   submitted:boolean=false
   isSubmitting:boolean=false
   login =new Login();
+  userId :any;
+  key:any;
   constructor(
     private formBuilder:FormBuilder,
     private loginService:LoginService,
     private router:Router,
-    private location:Location
+    private location:Location,
+    // private toastrService: ToastrService
 
   ) { }
 
@@ -56,12 +60,17 @@ export class LoginComponent implements OnInit {
   loginUser(login:any){
     this.loginService.onUserLogin(login).subscribe(
       (response:any)=>{
+        console.log(response);
+        // this.toastrService.success('Hello world!', 'Toastr fun!');
+        this.userId= localStorage.getItem('userId');
+        localStorage.setItem(this.key,login.userId);
+      this.userId=localStorage.getItem(this.key);
         this.isSubmitting=true;
-        // this.router.navigate(['/khajaghar/admin/item'])
+        this.router.navigate(['/khajaghar/admin/item'])
       },
       (error:any)=>{
         this.isSubmitting=false;
-      }
+      },
     )
   }
 

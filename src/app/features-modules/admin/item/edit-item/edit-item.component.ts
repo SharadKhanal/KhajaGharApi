@@ -45,7 +45,7 @@ isSubmitting:boolean=false;
     })
   }
   onSubmit(itemData:any):void{
-  // this.submitted=true;
+  this.submitted=true;
   this.item.id=this.id;
   this.item.itemName=itemData.itemName;
   this.item.itemPrice=itemData.itemPrice;
